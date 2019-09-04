@@ -73,7 +73,6 @@ class GithubService {
             //        session.dataTask(with: url) { [weak self] (data, _, error) in
             //          guard self = self { else handler(.failure(.weakSelf))} // option2: Do something here
             
-            print("HellO")
             if let error = error {
                 handler(.failure(error))
             } else {

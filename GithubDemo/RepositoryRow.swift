@@ -12,12 +12,13 @@ struct RepositoryRow: View {
     let repository: Repository
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(repository.name)
                 .font(.headline)
             Text(repository.description)
                 .font(.subheadline)
         }
+        
     }
 }
 
