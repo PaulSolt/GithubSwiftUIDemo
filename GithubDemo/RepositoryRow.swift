@@ -15,7 +15,7 @@ struct RepositoryRow: View {
         VStack(alignment: .leading) {
             Text(repository.name)
                 .font(.headline)
-            Text(repository.description)
+            Text(repository.description ?? " ") // use space " " to get a line of text when repository description is blank
                 .font(.subheadline)
         }
         

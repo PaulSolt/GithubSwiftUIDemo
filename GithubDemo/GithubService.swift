@@ -13,7 +13,7 @@ import Foundation
 struct Repository: Decodable, Identifiable {
     let id: Int
     let name: String
-    let description: String // String?
+    let description: String? // String?
 }
 
 struct GithubAPIResponse: Decodable {
