@@ -27,4 +27,7 @@ https://api.github.com/search/repositories?q=
 
   https://api.github.com/search/repositories/?q=PaulSolt
 
-	"{\"message\":\"Not Found\",\"documentation_url\":\"https://developer.github.com/v3\"}"
+	{
+	  "message": "Not Found",
+	  "documentation_url": "https://developer.github.com/v3"
+	}
