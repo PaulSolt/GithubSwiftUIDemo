@@ -13,7 +13,7 @@ import Foundation
 struct Repository: Decodable, Identifiable {
     let id: Int
     let name: String
-    let description: String
+    let description: String // String?
 }
 
 struct GithubAPIResponse: Decodable {
@@ -94,7 +94,7 @@ class GithubService {
                         
                     }
                     
-                    handler(.failure(GithubError.invalidJSON))
+                    handler(.failure(GithubError.invalidJSON(error: error)))
                 }
             }
         }.resume()
@@ -103,6 +103,6 @@ class GithubService {
 
 enum GithubError: Error {
     case noData
-    case invalidJSON
+    case invalidJSON(error: Error)
     case apiError(message: String)
 }
