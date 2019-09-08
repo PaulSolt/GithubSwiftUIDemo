@@ -15,10 +15,10 @@ struct RepositoryRow: View {
         VStack(alignment: .leading) {
             Text(repository.name)
                 .font(.headline)
-            Text(repository.description ?? " ") // use space " " to get a line of text when repository description is blank
+            Text(repository.description ?? "No Description")
                 .font(.subheadline)
+                .foregroundColor((repository.description != nil) ? .black : Color(UIColor.systemGray))
         }
-        
     }
 }
 

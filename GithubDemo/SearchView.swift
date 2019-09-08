@@ -30,27 +30,61 @@ class RepositoryStore: ObservableObject {
             }
         }
     }
+    
+
+    
+}
+
+class SearchStore: ObservableObject {
+    @Published var query: String = "PaulSolt"
+
 }
 
 struct SearchView: View {
-    @State private var query: String = "Swift"
+    
+//    @Published private var query: String = "PaulSolt"
+    @State private var query: String = "PaulSolt" //"Swift"
+//    @Published var query: String = "PaulSolt"
+    
     @EnvironmentObject var repositoryStore: RepositoryStore
-
+    
     var body: some View {
         NavigationView {
-
-            List {
-                HStack {
-                    Text("Search")
-                        .font(.headline)
-                    TextField("Type something...", text: $query, onCommit: fetch)
+            
+            VStack {
+                // 2nd approach
+                SearchBar(text: $query) {
+                    print("query: \(self.query)")
+                    self.fetch()
                 }
-                // TODO publish debounce / duplicates
-                ForEach(repositoryStore.repositories) { repository in
-                    RepositoryRow(repository: repository)
+
+                // 1st Approach
+//                TextField("Type something...", text: $query, onCommit: {
+//                    self.fetch()
+//                    // hide keyboard
+//                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+//                })
+//                .padding()
+//                .background(
+//                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+//                        .foregroundColor(Color(white:0.95))
+//                )
+//                .padding()
+                
+                List {
+
+                                    
+                    // TODO publish debounce / duplicates
+                    ForEach(repositoryStore.repositories) { repository in
+                        RepositoryRow(repository: repository)
+                    }
                 }
             }.navigationBarTitle(Text("Search"))
-        }.onAppear(perform: fetch)
+        }.onAppear {
+//            fetch()
+            // TODO: How do I change focus to the TextField() above
+        }
+        // (perform: fetch)
     }
     
     private func fetch() {
@@ -63,6 +97,6 @@ struct SearchView_Previews: PreviewProvider {
         SearchView()
             .environmentObject(
                 RepositoryStore(service: GithubService())
-            )
+        )
     }
 }
