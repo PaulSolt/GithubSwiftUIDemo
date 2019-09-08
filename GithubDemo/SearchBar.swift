@@ -6,17 +6,16 @@
 //  Copyright © 2019 Paul Solt. All rights reserved.
 //
 
-import Foundation
-import SwiftUI
-import Combine
-
-
 
 //var publisher: AnyPublisher<String?, Never> {
 //    var t = Text("hi")
 //    var searchBar = UISearchBar()
 //    return AnyPublisher(searchBar.publisher(for: \.text))
 //}
+
+import Foundation
+import SwiftUI
+import Combine
 
 typealias SearchCompletion = () -> Void
 

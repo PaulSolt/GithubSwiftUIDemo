@@ -30,9 +30,6 @@ class RepositoryStore: ObservableObject {
             }
         }
     }
-    
-
-    
 }
 
 class SearchStore: ObservableObject {
@@ -53,10 +50,10 @@ struct SearchView: View {
             
             VStack {
                 // 2nd approach
-                SearchBar(text: $query) {
-                    print("query: \(self.query)")
-                    self.fetch()
-                }
+//                SearchBar(text: $query) {
+//                    print("query: \(self.query)")
+//                    self.fetch()
+//                }
 
                 // 1st Approach
 //                TextField("Type something...", text: $query, onCommit: {
