@@ -50,23 +50,23 @@ struct SearchView: View {
             
             VStack {
                 // 2nd approach
-//                SearchBar(text: $query) {
-//                    print("query: \(self.query)")
-//                    self.fetch()
-//                }
+                SearchBar(text: $query) {
+                    print("query: \(self.query)")
+                    self.fetch()
+                }
 
                 // 1st Approach
-//                TextField("Type something...", text: $query, onCommit: {
-//                    self.fetch()
-//                    // hide keyboard
-//                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
-//                })
-//                .padding()
-//                .background(
-//                    RoundedRectangle(cornerRadius: 5, style: .continuous)
-//                        .foregroundColor(Color(white:0.95))
-//                )
-//                .padding()
+                TextField("Type something...", text: $query, onCommit: {
+                    self.fetch()
+                    // hide keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
+                })
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .foregroundColor(Color(white:0.95))
+                )
+                .padding()
                 
                 List {
 
